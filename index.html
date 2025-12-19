@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday jaana ❤️</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  background:url("bg.jpg") repeat;
+  background-size:300px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.75);
+}
+
+.box{
+  position:relative;
+  text-align:center;
+  color:#ff3366;
+  padding:25px;
+  border-radius:20px;
+  animation:fadeIn 1.5s ease;
+}
+
+h1{
+  font-size:2.5rem;
+}
+
+p{
+  margin-top:15px;
+  font-size:1.1rem;
+}
+
+.swipe{
+  margin-top:40px;
+  font-size:0.9rem;
+  opacity:0.8;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(25px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="box">
+  <h1>🎉 Happy Birthday 🎂</h1>
+  <p>
+    Meri jaana ❤️<br>
+    Aaj ka din sirf tumhare liye hai ✨
+  </p>
+  <div class="swipe">⬆️ Swipe to continue</div>
+</div>
+
+<script>
+let startY=0, startX=0;
+
+document.addEventListener("touchstart", e=>{
+  startY=e.touches[0].clientY;
+  startX=e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", e=>{
+  let endY=e.changedTouches[0].clientY;
+  let endX=e.changedTouches[0].clientX;
+
+  if(startY-endY>50 || startX-endX>50){
+    window.location.href="page2.html";
+  }
+});
+</script>
+
+</body>
+  </html>
