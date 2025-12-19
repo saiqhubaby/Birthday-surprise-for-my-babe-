@@ -1,0 +1,121 @@
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+/* BACKGROUND */
+.background{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg,#ffb6c1,#ffd1dc);
+  z-index:-2;
+}
+
+/* 3D SCENE */
+.scene3d{
+  position:absolute;
+  inset:0;
+  perspective:1200px;
+  overflow:hidden;
+}
+
+/* SKYBOX */
+.cube{
+  position:absolute;
+  width:100vw;
+  height:100vh;
+  transform-style:preserve-3d;
+}
+
+.cube .face{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:radial-gradient(circle at top,#ffccd5,#ffe6eb);
+}
+
+/* BUTTERFLY CONTAINER */
+.butterfly_container{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform-style:preserve-3d;
+  animation:fly 12s linear infinite;
+}
+
+/* SCALES */
+.scale_half{ transform:scale(0.6); }
+.scale_third{ transform:scale(0.4); }
+
+/* ROTATIONS */
+.rotate3d{
+  transform-style:preserve-3d;
+  animation:rotate 6s linear infinite;
+}
+
+.scale{
+  transform:scale(1);
+}
+
+.translate3d{
+  transform:translateZ(0);
+}
+
+.translate3d-1{
+  transform:translate3d(-50%,-50%,0);
+}
+
+/* BUTTERFLY */
+.butterfly{
+  position:relative;
+  width:60px;
+  height:120px;
+  transform-style:preserve-3d;
+}
+
+/* WINGS */
+.wing{
+  position:absolute;
+  width:50px;
+  height:100px;
+  fill:url(#image);
+  transform-origin:center;
+  animation:flap 0.8s ease-in-out infinite;
+}
+
+.wing.left{
+  left:0;
+  transform-origin:right center;
+}
+
+.wing.right{
+  right:0;
+  transform:scaleX(-1);
+  transform-origin:left center;
+}
+
+/* ANIMATIONS */
+@keyframes flap{
+  0%{ transform:rotateY(0deg); }
+  50%{ transform:rotateY(35deg); }
+  100%{ transform:rotateY(0deg); }
+}
+
+@keyframes fly{
+  0%{
+    transform:translate3d(-300px,0,0);
+  }
+  50%{
+    transform:translate3d(300px,-150px,200px);
+  }
+  100%{
+    transform:translate3d(-300px,0,0);
+  }
+}
+
+@keyframes rotate{
+  from{ transform:rotateY(0deg); }
+  to{ transform:rotateY(360deg); }
+}￼Enter
