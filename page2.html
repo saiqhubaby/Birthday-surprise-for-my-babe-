@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:#fff0f5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+.card{
+  background:white;
+  padding:35px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 15px 35px rgba(0,0,0,0.2);
+  z-index:2;
+}
+
+h1{
+  color:#ff4d6d;
+}
+
+p{
+  margin-top:15px;
+  font-size:1.1rem;
+}
+
+.heart{
+  position:absolute;
+  color:#ff4d6d;
+  animation:float 5s linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh); opacity:1;}
+  to{transform:translateY(-10vh); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>❤️ Happy Birthday ❤️</h1>
+  <p>
+    Tum meri zindagi ka sabse khoobsurat hissa ho ✨<br>
+    Hamesha muskurate raho 🥺💖
+  </p>
+</div>
+
+<script>
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(16+Math.random()*24)+"px";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>heart.remove(),5000);
+},300);
+</script>
+
+</body>
+</html>
