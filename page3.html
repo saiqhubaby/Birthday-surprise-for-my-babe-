@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love World 3D 💫</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  height:100vh;
+  overflow:hidden;
+  background:radial-gradient(circle at top, #ff9a9e, #fad0c4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* 3D Scene */
+.scene{
+  width:260px;
+  height:260px;
+  perspective:900px;
+}
+
+.world{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  animation:rotateWorld 10s linear infinite;
+}
+
+.face{
+  position:absolute;
+  width:260px;
+  height:260px;
+  background:rgba(255,255,255,0.15);
+  border:2px solid rgba(255,255,255,0.3);
+  backdrop-filter:blur(6px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2rem;
+  color:white;
+  text-shadow:0 0 10px rgba(255,0,80,0.8);
+}
+
+.front { transform:translateZ(130px); }
+.back { transform:rotateY(180deg) translateZ(130px); }
+.right { transform:rotateY(90deg) translateZ(130px); }
+.left { transform:rotateY(-90deg) translateZ(130px); }
+.top { transform:rotateX(90deg) translateZ(130px); }
+.bottom { transform:rotateX(-90deg) translateZ(130px); }
+
+@keyframes rotateWorld{
+  from{ transform:rotateX(0deg) rotateY(0deg); }
+  to{ transform:rotateX(360deg) rotateY(360deg); }
+}
+
+/* Text */
+.text{
+  position:absolute;
+  bottom:8%;
+  text-align:center;
+  color:white;
+  font-size:1.1rem;
+  text-shadow:0 0 12px rgba(255,0,100,0.9);
+  padding:0 15px;
+}
+
+/* Hint */
+.hint{
+  position:absolute;
+  top:15px;
+  width:100%;
+  text-align:center;
+  font-size:0.85rem;
+  color:white;
+  opacity:0.85;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hint">🔄 Swipe / wait for full 360° rotation</div>
+
+<div class="scene">
+  <div class="world" id="world">
+    <div class="face front">❤️</div>
+    <div class="face back">💖</div>
+    <div class="face right">🌹</div>
+    <div class="face left">🦋</div>
+    <div class="face top">✨</div>
+    <div class="face bottom">😍</div>
+  </div>
+</div>
+
+<div class="text">
+  3D love world tumhare liye ✨<br>
+  Thoda aur ghoomne do 💫
+</div>
+
+<script>
+let opened = false;
+
+// Auto open after one full rotation
+setTimeout(()=>{
+  if(!opened){
+    opened = true;
+    window.location.href = "page4.html";
+  }
+}, 10000);
+
+// Swipe open (mobile)
+let startY = 0;
+document.addEventListener("touchstart", e=>{
+  startY = e.touches[0].clientY;
+});
+document.addEventListener("touchend", e=>{
+  let endY = e.changedTouches[0].clientY;
+  if(startY - endY > 50 && !opened){
+    opened = true;
+    window.location.href = "page4.html";
+  }
+});
+</script>
+
+</body>
+</html>￼Enter
