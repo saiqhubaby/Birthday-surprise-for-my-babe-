@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love You ❤️</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+.card{
+  background:rgba(255,255,255,0.92);
+  padding:40px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 20px 45px rgba(0,0,0,0.3);
+  z-index:2;
+}
+
+h1{
+  color:#e6004c;
+  font-size:1.6rem;
+}
+
+.rose{
+  position:absolute;
+  font-size:24px;
+  animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+  from{transform:translateY(-10vh); opacity:1;}
+  to{transform:translateY(110vh); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>
+    🌹 Jaan tumse Aziz mujhe koi bhi nahi 🌹<br><br>
+    Love you iqura ❤️
+  </h1>
+</div>
+
+<script>
+setInterval(()=>{
+  const rose=document.createElement("div");
+  rose.className="rose";
+  rose.innerHTML="🌹";
+  rose.style.left=Math.random()*100+"vw";
+  rose.style.fontSize=(20+Math.random()*20)+"px";
+  document.body.appendChild(rose);
+  setTimeout(()=>rose.remove(),6000);
+},250);
+</script>
+
+</body>
+</html>
